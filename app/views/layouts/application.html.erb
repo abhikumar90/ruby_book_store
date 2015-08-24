@@ -1,14 +1,156 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>RubyBookStore</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
 
-<%= yield %>
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+		<title>BookStore</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<%if !flash[:notice].blank?%>
+		<script>
+			$(function() {
+				$(".flash").slideDown();
+				$(".flash").click(function() {
+					$(this).slideUp();
+				});
+			})
+		</script>
+		<div class="flash" style="display: none;">
+			<%= flash[:notice]%>
+		</div>
+		<%end%>
+		<div id="wrap">
 
-</body>
+			<div class="header">
+				<div class="logo">
+
+					<img src="/assets/logo.gif" alt="" title="" border="0" />
+				</div>
+				<div id="menu">
+					<ul>
+						<li class="<%= "activee" if(@page_properties == "new") %>">
+							<%= link_to "Home", "/new"%>
+						</li>
+						
+						<li class="<%= "activee" if(@page_properties == "about") %>">
+							<%= link_to "About us","/about"%>
+						</li>
+						
+						<li class="<%= "activee" if(@page_properties == "books") %>">
+							<%= link_to "Books","/books"%>
+						</li>
+						
+						<li class="<%= "activee" if(@page_properties == "category") %>">
+							<%= link_to "Category", "/category"%>
+						</li>
+							
+						<li class="<%= "activee" if(@page_properties == "uploadbook") %>">
+							<%= link_to "Upload Book", "/uploadbook"%>
+						</li>
+						
+						
+						<li class="<%= "activee" if(@page_properties == "contact") %>">
+                			<%= link_to("Contact", "/contact") %>
+            			</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="center_content">
+				<div class="left_content">
+					
+					
+
+		
+		
+		
+		
+				
+					
+					
+					<%= yield %>
+				</div><!--end of left content-->
+
+				<div class="right_content">
+				
+				
+	<div id="user_nav">
+  <% if current_user %>
+    Logged in as <%= current_user.email %>
+    <%= link_to "Log out", log_out_path %>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or 
+    <%= link_to "Log in", log_in_path %>
+  <% end %>
+</div>
+				
+
+
+	<%= form_tag books_find_path, :method => :get do %>
+					
+		<p>
+			<%= text_field_tag :search, params[:search] , :class => 'textbox'%>
+			<%= submit_tag "Search", :name => nil, :style=>"padding: 3px;" %>
+		</p>
+					<% end %>
+
+					
+
+					<div class="cart">
+						<div class="title"></div>
+					</div>
+
+					<div class="title">
+						<span class="title_icon"> <img src="/assets/bullet3.gif" alt="" title="" /></span>About Our Store
+					</div>
+					<div class="about">
+						<p>
+							<img src="/assets/about.gif" alt="" title="" class="right" />
+							<p>
+								BookStore.net is a super quick and simple search engine for books that helps
+								you find the price and availability of books across various online bookstores.
+								It also provides user store reviews, which further help users to choose
+								the best deal on the right store.
+							</p>
+
+					</div>
+
+					
+
+					<div class="right_box">
+					
+						<div class="title">
+							<span class="title_icon"></span>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="clear"></div>
+			</div><!--end of center content-->
+
+			<div class="footer">
+				<div class="left_footer">
+					<a href="http://www.kreatio.com" target="_blank"> <img src="/assets/kr.jpg" alt="" title="" border="0" /> </a>
+					<img src="/assets/footer_logo.gif" alt="" title="" />
+				</div>
+				<div class="right_footer">
+
+					<%= link_to "home", "/new"%>
+					<%= link_to "about us","/about"%>
+					<%= link_to "services","/books"%>
+					<%= link_to "policy", "/category"%>
+					<%= link_to "contact", "/contact"%>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
 </html>

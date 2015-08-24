@@ -1,0 +1,26 @@
+
+
+		<% Category.all.each do |category|%>
+		<% category_books = Book.where("Contenttype = ?", category.name)%>
+		<% if !category_books.blank?%>
+		<div class="title">
+			<span class="title_icon"><img src="/assets/bullet2.gif" alt="" title="" /> </span>
+			<%= category.name%>
+		</div>
+		<div style="clear: both;"></div>
+		<div class="category_outer">
+			<% category_books.each do |book|%>
+			<div class="new_prod_box">
+				<a href='<%= book.file%>' target="_blank" ><%= book.title%>
+				<div class="new_prod_bg">
+
+					<img src="<%= book.image%>" width="100%" height="109px" alt="" title="" class="thumb" border="0" />
+				</a>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<div style="clear: both;"></div>
+	<% end %>
+	<% end %>
+

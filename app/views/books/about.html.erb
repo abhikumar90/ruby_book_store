@@ -1,0 +1,72 @@
+		<div class="title">
+			<span class="title_icon"> <img src="/assets/bullet1.gif" alt="" title="" /></span>About us
+		</div>
+
+		<div class="feat_prod_box_details">
+			<p class="details">
+				<img src="/assets/about.gif" alt="" title="" class="right" />
+			<p>
+				BookStore.net is a super quick and simple search engine for books that
+				helps you find the price and availability of books across various online
+				bookstores. It also provides user store reviews, which further help users
+				to choose the best deal on the right store.
+
+				The BookStore.net blog Bookish is _the_ destination for bibliophiles.
+				It provides users book reviews, author interviews, articles by published authors,
+				book releases, information on literary events, interesting articles that trigger your
+				nerves to think and more.
+
+				BookStore.net will hopefully help you find your book, and save some money to top it off. :)
+
+				We are small and growing, your feedback is highly appreciated.
+
+				Follow us on <a href="http://www.facebook.com">Facebook</a> or <a href="http://www.twitter.com">Twitter</a>.
+			</p>
+			
+		</div>
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head><!-- CDN hosted by Cachefly -->
+<script src="http://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script type="text/javascript">
+tinymce.init({
+    mode: "textareas",
+    plugins: ["code","table","anchor","emoticons","advlist"],
+     theme: "modern",
+    //convert_fonts_to_spans: false,
+    content_css: "css/content.css",
+    style_formats: [
+        {title: 'Bold text', inline: 'b'},
+        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+        {title: 'Example 1', inline: 'span', classes: 'example1'},
+        {title: 'Example 2', inline: 'span', classes: 'example2'},
+        {title: 'Table styles'},
+        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+    ],
+    formats: {
+        alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
+        aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
+        alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right'},
+        alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full'},
+        bold: {inline: 'span', 'classes': 'bold'},
+        italic: {inline: 'span', 'classes': 'italic'},
+        underline: {inline: 'span', 'classes': 'underline', exact: true},
+        strikethrough: {inline: 'del'},
+        customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
+    }
+});
+</script>
+
+</head>
+<form method="post" action="somepage">
+        <textarea name="content" style="width:100%"> </textarea>
+</form>
+
+
+</html>

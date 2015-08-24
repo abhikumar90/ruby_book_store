@@ -1,0 +1,47 @@
+<%= form_tag '/upload/uploadFile', :multipart => true do %>
+		<div class="title">
+			<span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /> </span>
+
+			<label for="dafile">Upload Book</label>
+		</div>
+
+		<%= file_field_tag "dafile" %>
+		<br />
+		<table>
+			<tr id="book_content_type">
+				<td><h3>Select Category :</h3></td>
+				<td> <%= collection_select(:book, :content_type, Category.all, :name, :name)%> </td>
+			</tr>
+			<br />
+
+		</table>
+
+	
+
+		<p>
+			<%= label_tag :description %><br />
+			<%= text_area_tag "books[description]" %>
+		</p>
+
+		<%= submit_tag  'Upload'%>
+
+		<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

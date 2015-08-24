@@ -1,0 +1,54 @@
+
+
+		<div class="title">
+			<span class="title_icon"><img src="/assets/bullet1.gif" alt="" title="" /> </span>Books
+		</div>
+
+		<% @books.each do |book|%>
+		<div class="feat_prod_box">
+
+			<div class="prod_img">
+
+				<img src="<%= book.image%>" alt="" title="" border="0" /></a>
+			</div>
+
+			<div class="prod_det_box">
+				<span class="special_icon"> </span>
+				<div class="box_top"></div>
+				
+				 
+				<div class="box_center">
+					  <%= button_to 'Download', "/books/download_book?id=#{book.id}", :class => "download_book"%>
+					<div class="prod_title">
+						<%= link_to book.title, book.file, :target => "blank"%>
+					</div>
+					
+					<div class="prod_desc">
+						<%= book.description%>
+					</div>
+					
+					<p class="details">
+						Uploaded Date: <%= book.uploaddate.to_datetime.strftime("%a, %B %d %Y")%>
+					 </p>
+
+					
+				</div>
+
+				<div class="box_bottom"></div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<% end %>
+		<%= will_paginate @books %>
+
+		<div class="clear"></div>
+
+
+
+
+<script>
+function reply_click(clicked_id)
+{
+    alert(clicked_id);
+}
+</script>

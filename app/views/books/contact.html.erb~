@@ -1,0 +1,85 @@
+	
+
+
+		<div class="title">
+			<span class="title_icon"> <img src="/assets/icn.png" alt="" title="" /> <img src="/assets/con.png" alt="" title="" /></span>
+
+		</div>
+
+		<div class="feat_prod_box_details">
+			<p class="details">
+
+				I would love to hear on how you like/dislike BookStore.net. Mail me on
+				<a href="http://www.kreatio.com">feedback@bookstore.net</a> or submit this small form.
+				Ideas and suggestions are welcome.
+			</p>
+
+			<div class="contact_form">
+				<div class="form_subtitle">
+					All fields are requierd
+				</div>
+
+				<%= form_tag books_create_url do  %>
+
+				<p>
+					<%= label_tag :Name %>
+					<br />
+					<%= text_field_tag "books[name]" %>
+				</p>
+
+				<p>
+					<%= label_tag :email %>
+					<br />
+					<%= text_field_tag "books[email]" %>
+				</p>
+
+				<p>
+					<%= label_tag :phone %>
+					<br />
+					<%= text_field_tag "books[phone]" %>
+				</p>
+
+				<p>
+					<%= label_tag :message %>
+					<br />
+					<%= text_area_tag "books[message]" %>
+
+				</p>
+
+
+
+				<p>
+					<%= label_tag :captcha %>
+					<br />
+					<%= show_simple_captcha %>
+
+				</p>
+
+			
+
+
+
+				<p>
+					<%= submit_tag("Submit")%>
+					<br />
+				</p>
+
+				<script>
+					$('#books_phone').blur(function() {
+						var a = $(this).val();
+						console.log(a);
+						if (parseInt(a) != a) {
+							alert('please enter a number only');
+						}
+					});
+
+				</script>
+
+				<% end %>
+
+			</div>
+		</div>
+		<div class="clear"></div>
+
+
+
